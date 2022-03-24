@@ -17,10 +17,10 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
       <article>
         <div>
           <header>
-            <div className="space-y-1 border-b border-gray-200 pb-10 text-center dark:border-gray-500">
+            <div className="space-y-1 border-b border-gray-200 pb-10 text-center dark:border-gray-200">
               <dl>
                 <div>
-                  <dt className="sr-only">Published on</dt>
+                  <dt className="sr-only">Publicado el</dt>
                   <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
                     <time dateTime={date}>{formatDate(date)}</time>
                   </dd>

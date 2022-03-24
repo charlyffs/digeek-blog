@@ -51,7 +51,7 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
             style={{ gridTemplateRows: 'auto 1fr' }}
           >
             <dl className="pt-6 pb-10 xl:border-b xl:border-gray-200 xl:pt-11 xl:dark:border-gray-700">
-              <dt className="sr-only">Authors</dt>
+              <dt className="sr-only">Autores</dt>
               <dd>
                 <ul className="flex justify-center space-x-8 sm:space-x-12 xl:block xl:space-x-0 xl:space-y-8">
                   {authorDetails.map((author) => (
@@ -66,7 +66,7 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
                         />
                       )}
                       <dl className="whitespace-nowrap text-sm font-medium leading-5">
-                        <dt className="sr-only">Name</dt>
+                        <dt className="sr-only">Nombre</dt>
                         <dd className="text-gray-900 dark:text-gray-100">{author.name}</dd>
                         <dt className="sr-only">Twitter</dt>
                         <dd>

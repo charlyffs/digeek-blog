@@ -40,7 +40,7 @@ const NewsletterForm = ({ title = 'Subscribe to the newsletter' }) => {
       <form className="flex flex-col sm:flex-row" onSubmit={subscribe}>
         <div>
           <label className="sr-only" htmlFor="email-input">
-            Email address
+            Dirección de email
           </label>
           <input
             autoComplete="email"
