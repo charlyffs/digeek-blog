@@ -69,7 +69,7 @@ export default function Home({ posts }) {
                           className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
                           aria-label={`Read "${title}"`}
                         >
-                          Read more &rarr;
+                          Ver más &rarr;
                         </Link>
                       </div>
                     </div>
@@ -87,7 +87,7 @@ export default function Home({ posts }) {
             className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
             aria-label="all posts"
           >
-            All Posts &rarr;
+            Todos los Posts &rarr;
           </Link>
         </div>
       )}
