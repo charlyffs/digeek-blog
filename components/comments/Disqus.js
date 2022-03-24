@@ -16,10 +16,9 @@ const Disqus = ({ frontMatter }) => {
     }
     if (window.DISQUS === undefined) {
       const script = document.createElement('script')
-      script.src = 'https://digeek-mx.disqus.com/embed.js'
+      script.src = 'https://' + siteMetadata.comment.disqusConfig.shortname + '.disqus.com/embed.js'
       script.setAttribute('data-timestamp', +new Date())
       script.setAttribute('crossorigin', 'anonymous')
-      script.setAttribute('Access-Control-Allow-Origin', '*')
       script.async = true
       document.body.appendChild(script)
     } else {
