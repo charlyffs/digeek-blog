@@ -16,23 +16,7 @@ const Disqus = ({ frontMatter }) => {
     }
     if (window.DISQUS === undefined) {
       const script = document.createElement('script')
-
-      var url = 'https://digeek-mx.disqus.com/embed.js'
-
-      var xhr = new XMLHttpRequest()
-      xhr.open('GET', url)
-
-      xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4) {
-          console.log(xhr.status)
-          console.log(xhr.responseText)
-        }
-      }
-
-      xhr.send()
-
-      script.src = xhr
-
+      script.src = 'https://' + siteMetadata.comment.disqusConfig.shortname + '.disqus.com/embed.js'
       script.setAttribute('data-timestamp', +new Date())
       script.setAttribute('crossorigin', 'anonymous')
       script.async = true
