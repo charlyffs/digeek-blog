@@ -34,7 +34,7 @@ module.exports = {
       typography: (theme) => ({
         DEFAULT: {
           css: {
-            color: theme('colors.gray.700'),
+            color: theme('colors.gray.500'),
             a: {
               color: theme('colors.primary.500'),
               '&:hover': {
@@ -136,7 +136,7 @@ module.exports = {
             details: {
               backgroundColor: theme('colors.gray.800'),
             },
-            hr: { borderColor: theme('colors.gray.700') },
+            hr: { borderColor: theme('colors.gray.400') },
             'ol li::marker': {
               fontWeight: '600',
               color: theme('colors.gray.400'),
