@@ -38,7 +38,7 @@ export default function Home({ posts }) {
                 title={title}
                 summary={summary}
                 tags={tags}
-                key={1}
+                key={slug}
               />
             )
           })}
