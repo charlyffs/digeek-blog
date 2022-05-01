@@ -4,6 +4,7 @@ import siteMetadata from '@/data/siteMetadata'
 import { useState } from 'react'
 import Pagination from '@/components/Pagination'
 import formatDate from '@/lib/utils/formatDate'
+import Image from 'next/image'
 
 export default function ListLayout({ posts, title, initialDisplayPosts = [], pagination }) {
   const [searchValue, setSearchValue] = useState('')
@@ -50,10 +51,13 @@ export default function ListLayout({ posts, title, initialDisplayPosts = [], pag
         <ul>
           {!filteredBlogPosts.length && 'No posts found.'}
           {displayPosts.map((frontMatter) => {
-            const { slug, date, title, summary, tags } = frontMatter
+            const { slug, date, title, summary, image, tags } = frontMatter
             return (
-              <li key={slug} className="py-4">
-                <article className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
+              <li key={slug} className="flex items-center py-4">
+                <div className="mr-4 flex max-h-[10rem] w-[15rem] rounded-lg">
+                  <Image src={`/${image}`} width={300} height={300} />
+                </div>
+                <article className="max-w-[28rem] space-y-2 xl:grid xl:max-w-[45rem] xl:grid-cols-4 xl:items-baseline xl:space-y-0">
                   <dl>
                     <dt className="sr-only">Publicado el</dt>
                     <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">

@@ -4,6 +4,7 @@ date: '2021-01-31'
 tags: ['hello']
 draft: true
 summary:
+image: 'static/images/logo.png'
 images: []
 ---
 
