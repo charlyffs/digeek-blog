@@ -23,7 +23,6 @@ const newPost = () => {
           <h1 className="text-2xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-3xl sm:leading-10 md:text-4xl md:leading-14">
             Cuerpo
           </h1>
-          <Editor id="editor" dark="true" onChange={(func) => console.log('edit: ' + func())} />
         </div>
         <hr className="my-5" />
         <div>
