@@ -53,6 +53,14 @@ const securityHeaders = [
 ]
 
 module.exports = withBundleAnalyzer({
+  async rewrites() {
+    return [
+      {
+        source: '/',
+        destination: 'http://localhost:8080/api/auth/login',
+      },
+    ]
+  },
   reactStrictMode: true,
   pageExtensions: ['js', 'jsx', 'md', 'mdx'],
   eslint: {
