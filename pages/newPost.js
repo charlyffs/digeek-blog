@@ -1,7 +1,9 @@
 import React from 'react'
 import { TextBox, TextArea } from '@/components/TextInputs'
 import Button from '@/components/Button'
-import { MarkdownTextEditor } from '@/components/Editor'
+import dynamic from 'next/dynamic'
+const DualEditor = dynamic(() => import('@/components/Editor'), { ssr: false })
+
 // const Editor = dynamic(() => import('@/components/Editor.js'), { ssr: false })
 
 const newPost = () => {
@@ -26,7 +28,7 @@ const newPost = () => {
           <h1 className="text-2xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-3xl sm:leading-10 md:text-4xl md:leading-14">
             Cuerpo
           </h1>
-          <MarkdownTextEditor />
+          <DualEditor />
         </div>
         <hr className="my-5" />
         <div>

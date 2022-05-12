@@ -37,8 +37,6 @@ import {
 } from '@remirror/react'
 import { MarkdownEditor } from '@/components/MarkdownEditor'
 
-export default { title: 'Editors / Markdown' }
-
 function MarkdownPreview() {
   const { getMarkdown } = useHelpers(true)
 
@@ -323,3 +321,4 @@ playtime is just beginning
 2. An ordered
 3. List
 `
+export default DualEditor
