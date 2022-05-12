@@ -4,8 +4,6 @@ import Button from '@/components/Button'
 import dynamic from 'next/dynamic'
 const DualEditor = dynamic(() => import('@/components/Editor'), { ssr: false })
 
-// const Editor = dynamic(() => import('@/components/Editor.js'), { ssr: false })
-
 const newPost = () => {
   return (
     <>

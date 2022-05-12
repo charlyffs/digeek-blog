@@ -49,7 +49,7 @@ function MarkdownPreview() {
 
 export const Basic = () => {
   return (
-    <MarkdownEditor placeholder="Start typing..." initialContent={basicContent}>
+    <MarkdownEditor placeholder="Start typing..." initialContent="">
       <MarkdownPreview />
     </MarkdownEditor>
   )
@@ -100,9 +100,7 @@ const MarkdownTextEditor = () => {
           }
         `,
       ]}
-    >
-      {/* <Toolbar items={toolbarItems} refocusEditor label='Top Toolbar' /> */}
-    </Remirror>
+    ></Remirror>
   )
 }
 
@@ -148,7 +146,7 @@ export const DualEditor = () => {
   const visual = useRemirror({
     extensions,
     stringHandler: 'markdown',
-    content: '**Markdown** content is the _best_',
+    content: '',
   })
   const markdown = useRemirror({
     extensions: () => [
@@ -228,38 +226,6 @@ const toolbarItems = [
         display: 'icon',
         attrs: { level: 2 },
       },
-      {
-        type: ComponentItem.ToolbarMenu,
-
-        items: [
-          {
-            type: ComponentItem.MenuGroup,
-            role: 'radio',
-            items: [
-              {
-                type: ComponentItem.MenuCommandPane,
-                commandName: 'toggleHeading',
-                attrs: { level: 3 },
-              },
-              {
-                type: ComponentItem.MenuCommandPane,
-                commandName: 'toggleHeading',
-                attrs: { level: 4 },
-              },
-              {
-                type: ComponentItem.MenuCommandPane,
-                commandName: 'toggleHeading',
-                attrs: { level: 5 },
-              },
-              {
-                type: ComponentItem.MenuCommandPane,
-                commandName: 'toggleHeading',
-                attrs: { level: 6 },
-              },
-            ],
-          },
-        ],
-      },
     ],
     separator: 'end',
   },
@@ -293,32 +259,4 @@ const toolbarItems = [
   },
 ]
 
-const basicContent = `
-**Markdown** content is the _best_
-<br>
-# Heading 1
-<br>
-## Heading 2
-<br>
-### Heading 3
-<br>
-#### Heading 4
-<br>
-##### Heading 5
-<br>
-###### Heading 6
-<br>
-> Blockquote
-\`\`\`ts
-const a = 'asdf';
-\`\`\`
-playtime is just beginning
-## List support
-- an unordered
-  - list is a thing
-    - of beauty
-1. As is
-2. An ordered
-3. List
-`
-export default DualEditor
+export default Basic

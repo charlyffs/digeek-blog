@@ -20,6 +20,8 @@ import {
   TableExtension,
   MarkdownExtension,
   HardBreakExtension,
+  ImageExtension,
+  TaskListExtension,
 } from 'remirror/extensions'
 import {
   useRemirror,
@@ -28,9 +30,12 @@ import {
   Toolbar,
   EditorComponent,
   ComponentItem,
+  TableComponents,
 } from '@remirror/react'
 import { AllStyledComponent } from '@remirror/styles/emotion'
 import { jsx as jsx$1, jsxs } from 'react/jsx-runtime'
+import { tableEditing } from '@remirror/pm/tables'
+import { T as TopToolbar, B as BubbleMenu } from '@/components/RemirrorToolbar'
 
 /**
  * The editor which is used to create the annotation. Supports formatting.
@@ -75,6 +80,9 @@ var MarkdownEditor = (_ref) => {
        * e.g. in a list item
        */
       new HardBreakExtension(),
+      new ImageExtension(),
+      new TableExtension(),
+      new TaskListExtension(),
     ],
     [placeholder]
   )
@@ -92,13 +100,9 @@ var MarkdownEditor = (_ref) => {
         autoFocus: true,
         initialContent: initialContent,
         children: [
-          /*#__PURE__*/ jsx$1(Toolbar, {
-            items: toolbarItems,
-            refocusEditor: true,
-            label: 'Top Toolbar',
-          }),
+          /*#__PURE__*/ jsx$1(TopToolbar, {}),
           /*#__PURE__*/ jsx$1(EditorComponent, {}),
-          children,
+          /*#__PURE__*/ jsx$1(BubbleMenu, {}),
         ],
       }),
     }),
@@ -206,6 +210,11 @@ var toolbarItems = [
       {
         type: ComponentItem.ToolbarCommandButton,
         commandName: 'toggleCodeBlock',
+        display: 'icon',
+      },
+      {
+        type: ComponentItem.ToolbarCommandButton,
+        commandName: 'createTable',
         display: 'icon',
       },
     ],
