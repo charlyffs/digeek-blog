@@ -5,12 +5,24 @@ import Image from '@/components/Image'
 
 import React from 'react'
 
+const Date = (props) => {
+  return (
+    <dl className={props.className}>
+      <dt className="sr-only">Publicado el</dt>
+      <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400 lg:float-right">
+        <time dateTime={props.date}>{formatDate(props.date)}</time>
+      </dd>
+    </dl>
+  )
+}
+
 const IndexPost = ({ slug, date, title, summary, tags }) => {
   return (
     <li key={slug} className="py-12">
       <article>
+        <Date className="float-right hidden lg:block" date={date} />
         <div className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
-          <div className="mx-auto mb-10 w-3/5">
+          <div className="m-auto w-4/5">
             <Image
               src="/static/images/canada/lake.jpg"
               width="100%"
@@ -20,12 +32,7 @@ const IndexPost = ({ slug, date, title, summary, tags }) => {
               alt="Post banner"
             />
           </div>
-          <dl>
-            <dt className="sr-only">Publicado el</dt>
-            <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-              <time dateTime={date}>{formatDate(date)}</time>
-            </dd>
-          </dl>
+          <Date className="block lg:hidden" date={date} />
           <div className="space-y-5 xl:col-span-3">
             <div className="space-y-6">
               <div>
