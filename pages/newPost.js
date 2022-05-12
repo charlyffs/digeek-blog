@@ -1,5 +1,7 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
+import { TextBox, TextArea } from '@/components/TextInputs'
+import Button from '@/components/Button'
 const Editor = dynamic(() => import('@/components/Editor.js'), { ssr: false })
 
 const newPost = () => {
@@ -10,14 +12,14 @@ const newPost = () => {
           <h1 className="text-2xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-3xl sm:leading-10 md:text-4xl md:leading-14">
             Título
           </h1>
-          <input type="text" name="" id="" className="mx-auto" />
+          <TextBox password placeholder="Introduce el título del artículo..." />
         </div>
         <hr className="my-5" />
         <div>
           <h1 className="text-2xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-3xl sm:leading-10 md:text-4xl md:leading-14">
             Resumen
           </h1>
-          <input type="text" name="" id="" />
+          <TextArea placeholder="Introduce una breve descripción del artículo..." />
         </div>
         <hr className="my-5" />
         <div>
@@ -32,9 +34,7 @@ const newPost = () => {
             Tags
           </h1>
         </div>
-        <button type="submit" className="mx-5">
-          Postear
-        </button>
+        <Button />
       </form>
     </>
   )
