@@ -1,9 +1,7 @@
 import React from 'react'
-import dynamic from 'next/dynamic'
 import { TextBox, TextArea } from '@/components/TextInputs'
 import Button from '@/components/Button'
-const Editor = dynamic(() => import('@/components/Editor.js'), { ssr: false })
-import MarkdownTextEditor from '@/components/Editor'
+import { MarkdownTextEditor } from '@/components/Editor'
 // const Editor = dynamic(() => import('@/components/Editor.js'), { ssr: false })
 
 const newPost = () => {
