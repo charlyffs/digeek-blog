@@ -49,7 +49,7 @@ function MarkdownPreview() {
 
 export const Basic = () => {
   return (
-    <MarkdownEditor placeholder="Start typing..." initialContent="">
+    <MarkdownEditor placeholder="Escribe algo..." initialContent="">
       <MarkdownPreview />
     </MarkdownEditor>
   )
