@@ -1,4 +1,4 @@
-import 'remirror/styles/all.css'
+import '@remirror/styles/all.css'
 
 import { css } from '@emotion/css'
 import { createContextState } from 'create-context-state'
@@ -35,7 +35,7 @@ import {
   useRemirror,
   UseRemirrorReturn,
 } from '@remirror/react'
-import { MarkdownEditor } from '@remirror/react-editors/markdown'
+import { MarkdownEditor } from '@/components/MarkdownEditor'
 
 export default { title: 'Editors / Markdown' }
 
