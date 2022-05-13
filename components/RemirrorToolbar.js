@@ -107,36 +107,14 @@ var toolbarItems = [
         },
       },
       {
-        type: ComponentItem.ToolbarMenu,
-
-        items: [
-          {
-            type: ComponentItem.MenuGroup,
-            role: 'radio',
-            items: [
-              {
-                type: ComponentItem.MenuCommandPane,
-                commandName: 'toggleHeading',
-                attrs: { level: 3 },
-              },
-              {
-                type: ComponentItem.MenuCommandPane,
-                commandName: 'toggleHeading',
-                attrs: { level: 4 },
-              },
-              {
-                type: ComponentItem.MenuCommandPane,
-                commandName: 'toggleHeading',
-                attrs: { level: 5 },
-              },
-              {
-                type: ComponentItem.MenuCommandPane,
-                commandName: 'toggleHeading',
-                attrs: { level: 6 },
-              },
-            ],
-          },
-        ],
+        type: ComponentItem.ToolbarCommandButton,
+        commandName: 'toggleHeading',
+        attrs: { level: 3 },
+      },
+      {
+        type: ComponentItem.ToolbarCommandButton,
+        commandName: 'toggleHeading',
+        attrs: { level: 4 },
       },
     ],
     separator: 'end',
@@ -177,16 +155,6 @@ var toolbarItems = [
       {
         type: ComponentItem.ToolbarCommandButton,
         commandName: 'toggleOrderedList',
-        display: 'icon',
-      },
-      {
-        type: ComponentItem.ToolbarCommandButton,
-        commandName: 'toggleTaskList',
-        display: 'icon',
-      },
-      {
-        type: ComponentItem.ToolbarCommandButton,
-        commandName: 'createTable',
         display: 'icon',
       },
     ],
