@@ -30,12 +30,10 @@ import {
   Toolbar,
   EditorComponent,
   ComponentItem,
-  TableComponents,
+  FloatingToolbar,
 } from '@remirror/react'
 import { AllStyledComponent } from '@remirror/styles/emotion'
 import { jsx as jsx$1, jsxs } from 'react/jsx-runtime'
-import { tableEditing } from '@remirror/pm/tables'
-import { T as TopToolbar, B as BubbleMenu } from '@/components/RemirrorToolbar'
 
 /**
  * The editor which is used to create the annotation. Supports formatting.
@@ -64,7 +62,6 @@ var MarkdownEditor = (_ref) => {
       new OrderedListExtension(),
       new ListItemExtension({
         priority: ExtensionPriority.High,
-        enableCollapsible: true,
       }),
       new CodeExtension(),
       new CodeBlockExtension({
@@ -73,7 +70,7 @@ var MarkdownEditor = (_ref) => {
       new TrailingNodeExtension(),
       new TableExtension(),
       new MarkdownExtension({
-        copyAsMarkdown: false,
+        copyAsMarkdown: true,
       }),
       /**
        * `HardBreakExtension` allows us to create a newline inside paragraphs.
@@ -108,7 +105,8 @@ var MarkdownEditor = (_ref) => {
     }),
   })
 }
-var toolbarItems = [
+
+var floatingToolbarItems = [
   {
     type: ComponentItem.ToolbarGroup,
     label: 'Simple Formatting',
@@ -125,12 +123,69 @@ var toolbarItems = [
       },
       {
         type: ComponentItem.ToolbarCommandButton,
+        commandName: 'toggleUnderline',
+        display: 'icon',
+      },
+      {
+        type: ComponentItem.ToolbarCommandButton,
         commandName: 'toggleStrike',
         display: 'icon',
       },
       {
         type: ComponentItem.ToolbarCommandButton,
         commandName: 'toggleCode',
+        display: 'icon',
+      },
+    ],
+  },
+]
+/**
+ * Bubble menu for the pre-packaged editors
+ */
+
+var BubbleMenu = () => {
+  return /*#__PURE__*/ jsx$1(FloatingToolbar, {
+    items: floatingToolbarItems,
+    positioner: 'selection',
+    placement: 'bottom',
+  })
+}
+
+var toolbarItems = [
+  {
+    type: ComponentItem.ToolbarGroup,
+    label: 'History',
+    items: [
+      {
+        type: ComponentItem.ToolbarCommandButton,
+        commandName: 'undo',
+        display: 'icon',
+      },
+      {
+        type: ComponentItem.ToolbarCommandButton,
+        commandName: 'redo',
+        display: 'icon',
+      },
+    ],
+    separator: 'end',
+  },
+  {
+    type: ComponentItem.ToolbarGroup,
+    label: 'Clipboard',
+    items: [
+      {
+        type: ComponentItem.ToolbarCommandButton,
+        commandName: 'copy',
+        display: 'icon',
+      },
+      {
+        type: ComponentItem.ToolbarCommandButton,
+        commandName: 'cut',
+        display: 'icon',
+      },
+      {
+        type: ComponentItem.ToolbarCommandButton,
+        commandName: 'paste',
         display: 'icon',
       },
     ],
@@ -157,43 +212,14 @@ var toolbarItems = [
         },
       },
       {
-        type: ComponentItem.ToolbarMenu,
-        items: [
-          {
-            type: ComponentItem.MenuGroup,
-            role: 'radio',
-            items: [
-              {
-                type: ComponentItem.MenuCommandPane,
-                commandName: 'toggleHeading',
-                attrs: {
-                  level: 3,
-                },
-              },
-              {
-                type: ComponentItem.MenuCommandPane,
-                commandName: 'toggleHeading',
-                attrs: {
-                  level: 4,
-                },
-              },
-              {
-                type: ComponentItem.MenuCommandPane,
-                commandName: 'toggleHeading',
-                attrs: {
-                  level: 5,
-                },
-              },
-              {
-                type: ComponentItem.MenuCommandPane,
-                commandName: 'toggleHeading',
-                attrs: {
-                  level: 6,
-                },
-              },
-            ],
-          },
-        ],
+        type: ComponentItem.ToolbarCommandButton,
+        commandName: 'toggleHeading',
+        attrs: { level: 3 },
+      },
+      {
+        type: ComponentItem.ToolbarCommandButton,
+        commandName: 'toggleHeading',
+        attrs: { level: 4 },
       },
     ],
     separator: 'end',
@@ -204,47 +230,53 @@ var toolbarItems = [
     items: [
       {
         type: ComponentItem.ToolbarCommandButton,
-        commandName: 'toggleBlockquote',
+        commandName: 'toggleBold',
         display: 'icon',
       },
       {
         type: ComponentItem.ToolbarCommandButton,
-        commandName: 'toggleCodeBlock',
+        commandName: 'toggleItalic',
         display: 'icon',
       },
       {
         type: ComponentItem.ToolbarCommandButton,
-        commandName: 'createTable',
+        commandName: 'toggleUnderline',
         display: 'icon',
       },
+      { type: ComponentItem.ToolbarCommandButton, commandName: 'toggleStrike', display: 'icon' },
+      { type: ComponentItem.ToolbarCommandButton, commandName: 'toggleCode', display: 'icon' },
     ],
     separator: 'end',
   },
   {
     type: ComponentItem.ToolbarGroup,
-    label: 'History',
+    label: 'Lists',
     items: [
       {
         type: ComponentItem.ToolbarCommandButton,
-        commandName: 'undo',
+        commandName: 'toggleBulletList',
         display: 'icon',
       },
       {
         type: ComponentItem.ToolbarCommandButton,
-        commandName: 'redo',
+        commandName: 'toggleOrderedList',
         display: 'icon',
-      },
-      {
-        type: ComponentItem.ToolbarCommandButton,
-        commandName: 'toggleColumns',
-        display: 'icon',
-        attrs: {
-          count: 2,
-        },
       },
     ],
     separator: 'none',
   },
 ]
 
-export { MarkdownEditor }
+var TopToolbar = () => {
+  return /*#__PURE__*/ jsx$1(Toolbar, {
+    items: toolbarItems,
+    refocusEditor: true,
+    label: 'Top Toolbar',
+  })
+}
+
+export const Basic = () => {
+  return <MarkdownEditor placeholder="Escribe algo..." initialContent=""></MarkdownEditor>
+}
+
+export default Basic
