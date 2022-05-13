@@ -1,8 +1,11 @@
 import { useState } from 'react'
 import styles from '../css/login-form.module.css'
 import { useRouter } from 'next/router'
+import Cookies from 'universal-cookie'
 
 function Login() {
+  const cookies = new Cookies()
+
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [correo, setCorreo] = useState('')
   const [contrasena, setContrasena] = useState('')
@@ -29,9 +32,19 @@ function Login() {
       //setErrorMessages({ name: data.field, msg: data.msg });
     } else if (data.status === 200) {
       setIsSubmitted(true)
-      document.cookie = `correo=${data.usuario.correo}`
-      document.cookie = `token=${data.token}`
-      document.cookie = `usuario=${data.usuario.nombre}`
+      cookies.set('correo', data.usuario.correo, {
+        path: '/',
+        sameSite: true,
+      })
+      cookies.set('nombre', data.usuario.nombre, {
+        path: '/',
+        sameSite: true,
+      })
+      cookies.set('token', data.token, {
+        path: '/',
+        sameSite: true,
+      })
+      console.log(cookies.getAll())
       router.push('/')
     }
   }

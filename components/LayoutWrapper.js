@@ -6,9 +6,13 @@ import SectionContainer from './SectionContainer'
 import Footer from './Footer'
 import MobileNav from './MobileNav'
 import ThemeSwitch from './ThemeSwitch'
-import getCookie from 'helpers/cookies'
+import Cookies from 'universal-cookie'
 
 const LayoutWrapper = ({ children }) => {
+  const cookies = new Cookies()
+
+  console.log(cookies.get('nombre'))
+
   return (
     <SectionContainer>
       <div className="flex h-screen flex-col justify-between">
@@ -31,7 +35,6 @@ const LayoutWrapper = ({ children }) => {
           </div>
           <div className="flex items-center text-base leading-5">
             <div className="hidden sm:block">
-              {getCookie('usuario') ? getCookie('usuario') : ''}
               {headerNavLinks.map((link) => (
                 <Link
                   key={link.title}
@@ -41,6 +44,27 @@ const LayoutWrapper = ({ children }) => {
                   {link.title}
                 </Link>
               ))}
+              {cookies.get('nombre') !== undefined ? (
+                <Link
+                  key="Cerrar Sesion"
+                  href="/login"
+                  className="p-1 font-medium text-gray-900 dark:text-gray-100 sm:p-4"
+                >
+                  <a
+                    onClick={() => {
+                      cookies.remove('nombre')
+                      cookies.remove('token')
+                      cookies.remove('correo')
+                    }}
+                  >
+                    Cerrar Sesion
+                  </a>
+                </Link>
+              ) : (
+                <Link key="Ingresar" href="/login">
+                  Ingresar
+                </Link>
+              )}
             </div>
             <ThemeSwitch />
             <MobileNav />
