@@ -6,8 +6,13 @@ import SectionContainer from './SectionContainer'
 import Footer from './Footer'
 import MobileNav from './MobileNav'
 import ThemeSwitch from './ThemeSwitch'
+import Cookies from 'universal-cookie'
 
 const LayoutWrapper = ({ children }) => {
+  const cookies = new Cookies()
+
+  console.log(cookies.get('nombre'))
+
   return (
     <SectionContainer>
       <div className="flex h-screen flex-col justify-between">
@@ -39,6 +44,27 @@ const LayoutWrapper = ({ children }) => {
                   {link.title}
                 </Link>
               ))}
+              {cookies.get('nombre') !== undefined ? (
+                <Link
+                  key="Cerrar Sesion"
+                  href="/login"
+                  className="p-1 font-medium text-gray-900 dark:text-gray-100 sm:p-4"
+                >
+                  <a
+                    onClick={() => {
+                      cookies.remove('nombre')
+                      cookies.remove('token')
+                      cookies.remove('correo')
+                    }}
+                  >
+                    Cerrar Sesion
+                  </a>
+                </Link>
+              ) : (
+                <Link key="Ingresar" href="/login">
+                  Ingresar
+                </Link>
+              )}
             </div>
             <ThemeSwitch />
             <MobileNav />
