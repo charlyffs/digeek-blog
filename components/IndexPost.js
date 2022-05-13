@@ -22,16 +22,18 @@ const IndexPost = ({ slug, date, title, summary, tags }) => {
       <article>
         <Date className="float-right hidden lg:block" date={date} />
         <div className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
-          <div className="m-auto w-4/5">
-            <Image
-              src="/static/images/canada/lake.jpg"
-              width="100%"
-              height="100%"
-              layout="responsive"
-              sizes="50vw"
-              alt="Post banner"
-            />
-          </div>
+          <Link href={`/blog/${slug}`} className="text-gray-900 dark:text-gray-100">
+            <div className="m-auto w-4/5">
+              <Image
+                src="/static/images/canada/lake.jpg"
+                width="100%"
+                height="100%"
+                layout="responsive"
+                sizes="50vw"
+                alt="Post banner"
+              />
+            </div>
+          </Link>
           <Date className="block lg:hidden" date={date} />
           <div className="space-y-5 xl:col-span-3">
             <div className="space-y-6">
