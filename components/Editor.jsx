@@ -47,7 +47,6 @@ function MarkdownPreview() {
   )
 }
 
-
 const [DualEditorProvider, useDualEditor] = createContextState(({ props }) => {
   return {
     ...props,
@@ -70,7 +69,7 @@ const [DualEditorProvider, useDualEditor] = createContextState(({ props }) => {
   }
 })
 
-const MarkdownTextEditor = ({setText}) => {
+const MarkdownTextEditor = ({ setText }) => {
   const { markdown, setVisual } = useDualEditor()
 
   return (
@@ -98,7 +97,7 @@ const MarkdownTextEditor = ({setText}) => {
   )
 }
 
-const VisualEditor = ({setText}) => {
+const VisualEditor = ({ setText }) => {
   const { visual, setMarkdown } = useDualEditor()
 
   return (
@@ -137,7 +136,7 @@ const VisualEditor = ({setText}) => {
 /**
  * The editor which is used to create the annotation. Supports formatting.
  */
-const DualEditor = ({setText}) => {
+const DualEditor = ({ setText }) => {
   const visual = useRemirror({
     extensions,
     stringHandler: 'markdown',
@@ -247,6 +246,23 @@ const toolbarItems = [
         commandName: 'toggleColumns',
         display: 'icon',
         attrs: { count: 2 },
+      },
+    ],
+    separator: 'end',
+  },
+  {
+    type: ComponentItem.ToolbarGroup,
+    label: 'Lists',
+    items: [
+      {
+        type: ComponentItem.ToolbarCommandButton,
+        commandName: 'toggleBulletList',
+        display: 'icon',
+      },
+      {
+        type: ComponentItem.ToolbarCommandButton,
+        commandName: 'toggleOrderedList',
+        display: 'icon',
       },
     ],
     separator: 'none',
