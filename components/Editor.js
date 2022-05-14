@@ -275,8 +275,8 @@ var TopToolbar = () => {
   })
 }
 
-export const Basic = () => {
-  return <MarkdownEditor placeholder="Escribe algo..." initialContent=""></MarkdownEditor>
+const Basic = () => {
+  return <MarkdownEditor placeholder="Escribe algo..."></MarkdownEditor>
 }
 
 export default Basic

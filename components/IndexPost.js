@@ -22,6 +22,7 @@ const IndexPost = ({ slug, date, title, summary, tags }) => {
       <article>
         <Date className="float-right hidden lg:block" date={date} />
         <div className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
+          {/* Only display if there is an image in post's corresponding folder */}
           <Link href={`/blog/${slug}`} className="text-gray-900 dark:text-gray-100">
             <div className="m-auto w-4/5">
               <Image

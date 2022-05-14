@@ -38,7 +38,7 @@ const newPost = () => {
             Tags
           </h1>
         </div>
-        <Button caption="Postear" />
+        <Button caption="Postear" className="float-right" />
       </form>
     </>
   )

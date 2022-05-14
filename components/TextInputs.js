@@ -10,6 +10,8 @@ export const TextBox = (props) => {
       name={props.name}
       id={props.id}
       placeholder={props.placeholder}
+      required={props.required}
+      onChange={props.onChange}
       className={style}
     />
   )
