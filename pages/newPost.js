@@ -39,8 +39,13 @@ const newPost = () => {
           <h1 className="text-2xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-3xl sm:leading-10 md:text-4xl md:leading-14">
             Tags
           </h1>
+          <TextBox
+            id="tags"
+            name="Tags"
+            placeholder="Escribe la lista de tags, separados por coma."
+          />
         </div>
-        <Button caption="Postear" 
+        <Button caption="Publicar" className="mx-auto mt-4 flex"
           onClick={()=>{
               console.log(text);
             }

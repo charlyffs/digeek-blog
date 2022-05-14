@@ -84,9 +84,7 @@ function Login() {
             required
           />
         </div>
-        <div className="flex">
-          <Button id="submit" caption="Submit" className="mx-auto" />
-        </div>
+        <Button id="submit" caption="Submit" className="mx-auto flex" />
       </form>
     </>
   )

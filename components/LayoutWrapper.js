@@ -46,6 +46,17 @@ const LayoutWrapper = ({ children }) => {
               ))}
               {cookies.get('nombre') !== undefined ? (
                 <Link
+                  key="Publicar"
+                  href="/newPost"
+                  className="p-1 font-medium text-gray-900 dark:text-gray-100 sm:p-4"
+                >
+                  Publicar
+                </Link>
+              ) : (
+                ''
+              )}
+              {cookies.get('nombre') !== undefined ? (
+                <Link
                   key="Cerrar Sesion"
                   href="/login"
                   className="p-1 font-medium text-gray-900 dark:text-gray-100 sm:p-4"
