@@ -45,32 +45,30 @@ const LayoutWrapper = ({ children }) => {
                 </Link>
               ))}
               {cookies.get('nombre') !== undefined ? (
-                <Link
-                  key="Publicar"
-                  href="/newPost"
-                  className="p-1 font-medium text-gray-900 dark:text-gray-100 sm:p-4"
-                >
-                  Publicar
-                </Link>
-              ) : (
-                ''
-              )}
-              {cookies.get('nombre') !== undefined ? (
-                <Link
-                  key="Cerrar Sesion"
-                  href="/login"
-                  className="p-1 font-medium text-gray-900 dark:text-gray-100 sm:p-4"
-                >
-                  <a
-                    onClick={() => {
-                      cookies.remove('nombre')
-                      cookies.remove('token')
-                      cookies.remove('correo')
-                    }}
+                <>
+                  <Link
+                    key="Publicar"
+                    href="/newPost"
+                    className="p-1 font-medium text-gray-900 dark:text-gray-100 sm:p-4"
                   >
-                    Cerrar Sesion
-                  </a>
-                </Link>
+                    Publicar
+                  </Link>
+                  <Link
+                    key="Cerrar Sesion"
+                    href="/login"
+                    className="p-1 font-medium text-gray-900 dark:text-gray-100 sm:p-4"
+                  >
+                    <a
+                      onClick={() => {
+                        cookies.remove('nombre')
+                        cookies.remove('token')
+                        cookies.remove('correo')
+                      }}
+                    >
+                      Cerrar Sesion
+                    </a>
+                  </Link>
+                </>
               ) : (
                 <Link key="Ingresar" href="/login">
                   Ingresar
