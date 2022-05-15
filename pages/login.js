@@ -62,7 +62,8 @@ function Login() {
         className="mx-32 rounded-lg border-2 px-16 py-8 drop-shadow-lg"
       >
         <h1 className="text-center font-bold">
-          Ingresa con los datos de la cuenta que los administradores de la página te proporcionaron
+          El inicio de sesión es solo para administradores, si no es tu caso, puedes volver a seguir
+          leyendo más artículos.
         </h1>
         <div className="mt-5 mb-8">
           <label className="">Correo</label>
