@@ -23,6 +23,7 @@ export const TextArea = (props) => {
       name={props.name}
       id={props.id}
       placeholder={props.placeholder}
+      onChange={props.onChange}
       className={style + ' h-32'}
     />
   )
