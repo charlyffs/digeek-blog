@@ -26,7 +26,7 @@ const IndexPost = ({ slug, date, title, summary, tags }) => {
           <Link href={`/blog/${slug}`} className="text-gray-900 dark:text-gray-100">
             <div className="m-auto w-4/5">
               <Image
-                src="/static/images/canada/lake.jpg"
+                src="/static/favicons/mstile-150x150.png"
                 width="100%"
                 height="100%"
                 layout="responsive"
