@@ -79,6 +79,7 @@ function Login() {
           <label className="">Contraseña</label>
           <TextBox
             type="password"
+            password
             name="contrasena"
             placeholder="Introduce tu contraseña..."
             onChange={(e) => setContrasena(e.target.value)}
