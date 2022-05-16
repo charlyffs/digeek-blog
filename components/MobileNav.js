@@ -1,8 +1,10 @@
 import { useState } from 'react'
 import Link from './Link'
 import headerNavLinks from '@/data/headerNavLinks'
+import Cookies from 'universal-cookie'
 
 const MobileNav = () => {
+  const cookies = new Cookies()
   const [navShow, setNavShow] = useState(false)
 
   const onToggleNav = () => {
@@ -69,6 +71,43 @@ const MobileNav = () => {
               </Link>
             </div>
           ))}
+          {cookies.get('nombre') !== undefined ? (
+            <>
+              <div key="Publicar" className="px-12 py-4">
+                <Link
+                  href="/newPost"
+                  className="text-2xl font-bold tracking-widest text-gray-900 dark:text-gray-100"
+                >
+                  Publicar
+                </Link>
+              </div>
+              <div key="Cerrar Sesion" className="px-12 py-4">
+                <Link
+                  href="/login"
+                  className="text-2xl font-bold tracking-widest text-gray-900 dark:text-gray-100"
+                >
+                  <a
+                    onClick={() => {
+                      cookies.remove('nombre')
+                      cookies.remove('token')
+                      cookies.remove('correo')
+                    }}
+                  >
+                    Cerrar Sesion
+                  </a>
+                </Link>
+              </div>
+            </>
+          ) : (
+            <div key="Ingresar" className="px-12 py-4">
+              <Link
+                href="/login"
+                className="text-2xl font-bold tracking-widest text-gray-900 dark:text-gray-100"
+              >
+                Ingresar
+              </Link>
+            </div>
+          )}
         </nav>
       </div>
     </div>
