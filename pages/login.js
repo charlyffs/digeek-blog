@@ -59,7 +59,7 @@ function Login() {
       <form
         onSubmit={handleSubmit}
         method="POST"
-        className="mx-32 rounded-lg border-2 px-16 py-8 drop-shadow-lg"
+        className="rounded-lg border-2 px-16 py-8 drop-shadow-lg md:mx-20 lg:mx-32"
       >
         <h1 className="text-center font-bold">
           El inicio de sesión es solo para administradores, si no es tu caso, puedes volver a seguir
